@@ -1,0 +1,27 @@
+{
+  "name": "reddit.images",
+  "version": "1.0.0",
+  "description": "A npm package for fetching images from reddit.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "reddit",
+    "meme",
+    "reddit image"
+  ],
+  "homepage": "https://github.com/sujalgoel/reddit.images",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sujalgoel/reddit.images/issues"
+  },
+  "author": "Sujal Goel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sujalgoel/reddit.images.git"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
