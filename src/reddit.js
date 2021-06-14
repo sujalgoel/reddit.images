@@ -5,6 +5,10 @@ const { PostFormat, UserFormat } = require('./function');
 const MemeSubreddit = ['memes', 'AdviceAnimals', 'AdviceAnimals+funny+memes', 'funny', 'PrequelMemes', 'SequelMemes', 'MemeEconomy', 'ComedyCemetery', 'PewdiepieSubmissions', 'dankmemes', 'terriblefacebookmemes', 'shittyadviceanimals', 'wholesomememes', 'me_irl', '2meirl4meirl', 'i_irl', 'meirl', 'BikiniBottomTwitter', 'trippinthroughtime', 'boottoobig', 'HistoryMemes', 'fakehistoryporn', 'OTMemes', 'starterpacks', 'gifs', 'rickandmorty', 'FellowKids', 'Memes_Of_The_Dank', 'raimimemes', 'comedyhomicide', 'lotrmemes', 'freefolk', 'GameOfThronesMemes', 'howyoudoin', 'HolUp', 'meme', 'memeswithoutmods', 'dankmeme', 'suicidebywords', 'puns', 'PerfectTiming'];
 
 module.exports = {
+
+	/**
+	  * @param {"hot"|"top"|"rising"|"new"} SearchType
+	  */
 	FetchRandomMeme(SearchType) {
 		if (SearchType !== 'hot' && SearchType !== 'top' && SearchType !== 'rising' && SearchType !== 'new') {
 			SearchType = search[Math.floor(Math.random() * search.length)];
@@ -17,6 +21,10 @@ module.exports = {
 			});
 	},
 
+	/**
+	  * @param {string} Subreddit - A subreddit from https://reddit.com/
+	  * @param {"hot"|"top"|"rising"|"new"} SearchType
+	  */
 	FetchSubredditPost(Subreddit, SearchType) {
 		if (SearchType !== 'hot' && SearchType !== 'top' && SearchType !== 'rising' && SearchType !== 'new') {
 			SearchType = search[Math.floor(Math.random() * search.length)];
@@ -42,6 +50,9 @@ module.exports = {
 			});
 	},
 
+	/**
+	  * @param {string} id - A post id from https://reddit.com/
+	  */
 	FetchPostbyID(id) {
 		if (!id) {
 			throw new Error('Please provide a Reddit Post ID!');
@@ -62,6 +73,10 @@ module.exports = {
 			});
 	},
 
+
+	/**
+	  * @param {"hot"|"top"|"rising"|"new"} SearchType
+	  */
 	FetchRandomPost(SearchType) {
 		if (SearchType !== 'hot' && SearchType !== 'top' && SearchType !== 'rising' && SearchType !== 'new') {
 			SearchType = search[Math.floor(Math.random() * search.length)];
@@ -74,6 +89,10 @@ module.exports = {
 			});
 	},
 
+
+	/**
+	  * @param {"hot"|"top"|"rising"|"new"} SearchType
+	  */
 	FetchPost(SearchType) {
 		if (SearchType !== 'hot' && SearchType !== 'top' && SearchType !== 'rising' && SearchType !== 'new') {
 			SearchType = search[Math.floor(Math.random() * search.length)];
@@ -86,6 +105,10 @@ module.exports = {
 			});
 	},
 
+	/**
+	  * @param {string} Username - A username from https://reddit.com/
+	  * @param {string} Number - Number of comments and submitted post on https://reddit.com/ by the submitted Username
+	  */
 	async FetchRedditUserInfo(Username, Number) {
 		if (!Username) {
 			throw new Error('Please provide a Reddit Post ID!');

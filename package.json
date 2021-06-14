@@ -1,6 +1,6 @@
 {
   "name": "reddit.images",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A npm package for fetching images from reddit.",
   "main": "index.js",
   "scripts": {
