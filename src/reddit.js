@@ -133,7 +133,7 @@ module.exports = {
 						moderator: res.data.is_mod,
 						verified: res.data.verified,
 						gold_user: res.data.is_gold,
-						url: 'https://reddit' + res.data.subreddit.url,
+						url: 'https://reddit.com' + res.data.subreddit.url,
 						title: res.data.subreddit.title,
 						over_18: res.data.subreddit.over_18,
 						quarantine: res.data.subreddit.quarantine,
