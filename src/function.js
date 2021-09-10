@@ -1,41 +1,22 @@
 module.exports = {
-	PostFormat: function(data, type) {
-		if (type) {
-			return {
-				id: typeof data.id !== 'undefined' ? data.id : null,
-				type: type,
-				title: typeof data.title !== 'undefined' ? data.title : null,
-				author: typeof data.author !== 'undefined' ? data.author : null,
-				postLink: typeof data.id !== 'undefined' ? 'https://redd.it/' + data.id : null,
-				image: typeof data.url !== 'undefined' ? data.url : null,
-				text: typeof data.selftext !== 'undefined' ? data.selftext : null,
-				thumbnail: typeof data.thumbnail !== 'undefined' ? data.thumbnail : null,
-				subreddit: typeof data.subreddit !== 'undefined' ? data.subreddit : null,
-				NSFW: typeof data.over_18 !== 'undefined' ? data.over_18 : null,
-				spoiler: typeof data.spoiler !== 'undefined' ? data.spoiler : null,
-				createdUtc: typeof data.created_utc !== 'undefined' ? data.created_utc : null,
-				upvotes: typeof data.ups !== 'undefined' ? data.ups : null,
-				downvotes: typeof data.downs !== 'undefined' ? data.downs : null,
-				upvoteRatio: typeof data.upvote_ratio !== 'undefined' ? data.upvote_ratio : null,
-			};
-		} else {
-			return {
-				id: typeof data.id !== 'undefined' ? data.id : null,
-				title: typeof data.title !== 'undefined' ? data.title : null,
-				author: typeof data.author !== 'undefined' ? data.author : null,
-				postLink: typeof data.id !== 'undefined' ? 'https://redd.it/' + data.id : null,
-				image: typeof data.url !== 'undefined' ? data.url : null,
-				text: typeof data.selftext !== 'undefined' ? data.selftext : null,
-				thumbnail: typeof data.thumbnail !== 'undefined' ? data.thumbnail : null,
-				subreddit: typeof data.subreddit !== 'undefined' ? data.subreddit : null,
-				NSFW: typeof data.over_18 !== 'undefined' ? data.over_18 : null,
-				spoiler: typeof data.spoiler !== 'undefined' ? data.spoiler : null,
-				createdUtc: typeof data.created_utc !== 'undefined' ? data.created_utc : null,
-				upvotes: typeof data.ups !== 'undefined' ? data.ups : null,
-				downvotes: typeof data.downs !== 'undefined' ? data.downs : null,
-				upvoteRatio: typeof data.upvote_ratio !== 'undefined' ? data.upvote_ratio : null,
-			};
-		}
+	PostFormat: function(data, type, image) {
+		return {
+			id: typeof data.id !== 'undefined' ? data.id : null,
+			type: type,
+			title: typeof data.title !== 'undefined' ? data.title : null,
+			author: typeof data.author !== 'undefined' ? data.author : null,
+			postLink: typeof data.id !== 'undefined' ? 'https://redd.it/' + data.id : null,
+			image: image ? image : data.url,
+			text: typeof data.selftext !== 'undefined' ? data.selftext : null,
+			thumbnail: typeof data.thumbnail !== 'undefined' ? data.thumbnail : null,
+			subreddit: typeof data.subreddit !== 'undefined' ? data.subreddit : null,
+			NSFW: typeof data.over_18 !== 'undefined' ? data.over_18 : null,
+			spoiler: typeof data.spoiler !== 'undefined' ? data.spoiler : null,
+			createdUtc: typeof data.created_utc !== 'undefined' ? data.created_utc : null,
+			upvotes: typeof data.ups !== 'undefined' ? data.ups : null,
+			downvotes: typeof data.downs !== 'undefined' ? data.downs : null,
+			upvoteRatio: typeof data.upvote_ratio !== 'undefined' ? data.upvote_ratio : null,
+		};
 	},
 
 	UserFormat: function(data, comments, submitted) {
@@ -58,5 +39,22 @@ module.exports = {
 			comments: typeof comments !== 'undefined' ? comments : null,
 			submitted: typeof submitted !== 'undefined' ? submitted : null,
 		};
+	},
+
+	getImage: function(data) {
+		let tries = 0;
+		const retry = 100;
+		while (tries < retry) {
+			const ImageURL = /imgur|gfycat|tenor|giphy|tumblr|gifbin|imgflip|gif|jpe?g|png/i.test(data.url);
+			if (ImageURL) {
+				return data.url;
+			}
+			tries++;
+			if (tries === retry) {
+				return null;
+			}
+			return null;
+		}
+		return data.url.replace('gifv', 'gif');
 	},
 };

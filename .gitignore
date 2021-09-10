@@ -1,4 +1,2 @@
-.npmignore
 node_modules/
-.history/
 package-lock.json
