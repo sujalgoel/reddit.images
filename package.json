@@ -1,10 +1,10 @@
 {
 	"name": "reddit.images",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A npm package for fetching images from reddit.",
 	"main": "index.js",
 	"scripts": {
-		"test": "node test/test.js"
+		"test": "ts-node test/test.ts"
 	},
 	"keywords": [
 		"reddit",
