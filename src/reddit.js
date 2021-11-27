@@ -1,10 +1,10 @@
-import fetch from 'node-fetch';
-import Functions from './function';
-import Meme from './json/meme.json';
+const fetch = require('node-fetch');
+const Functions = require('./function');
+const Meme = require('./json/meme.json');
 const BaseURL = 'https://api.reddit.com';
 
-export default {
-	async FetchRandomMeme(options: any) {
+module.exports = {
+	async FetchRandomMeme(options) {
 		if (
 			options.searchType !== 'hot' &&
 			options.searchType !== 'top' &&
@@ -29,8 +29,8 @@ export default {
 			let img = await Functions.getImage(res.data.children[num].data);
 			if (data.is_gallery) {
 				img = [];
-				const validPosts: any = Object.values(data.media_metadata).filter(
-					(image: any) => image.status === 'valid',
+				const validPosts = Object.values(data.media_metadata).filter(
+					(image) => image.status === 'valid',
 				);
 				for (let i = 0; i < validPosts.length; i++) {
 					img.push(validPosts[i].s.u.replace(/&amp;/g, '&'));
@@ -44,7 +44,7 @@ export default {
 			);
 		}
 	},
-	async FetchSubredditPost(options: any) {
+	async FetchSubredditPost(options) {
 		if (
 			options.searchType !== 'hot' &&
 			options.searchType !== 'top' &&
@@ -75,8 +75,8 @@ export default {
 			let img = await Functions.getImage(res.data.children[num].data);
 			if (data.is_gallery) {
 				img = [];
-				const validPosts: any = Object.values(data.media_metadata).filter(
-					(image: any) => image.status === 'valid',
+				const validPosts = Object.values(data.media_metadata).filter(
+					(image) => image.status === 'valid',
 				);
 				for (let i = 0; i < validPosts.length; i++) {
 					img.push(validPosts[i].s.u.replace(/&amp;/g, '&'));
@@ -91,7 +91,7 @@ export default {
 			);
 		}
 	},
-	async FetchPostbyID(id: any) {
+	async FetchPostbyID(id) {
 		if (!id) {
 			throw new Error('Please provide a Reddit Post ID!');
 		}
@@ -128,8 +128,8 @@ export default {
 		let img = await Functions.getImage(res.data.children[num].data);
 		if (data.is_gallery) {
 			img = [];
-			const validPosts: any = Object.values(data.media_metadata).filter(
-				(image: any) => image.status === 'valid',
+			const validPosts = Object.values(data.media_metadata).filter(
+				(image) => image.status === 'valid',
 			);
 			for (let i = 0; i < validPosts.length; i++) {
 				img.push(validPosts[i].s.u.replace(/&amp;/g, '&'));
@@ -169,8 +169,8 @@ export default {
 
 		if (data.is_gallery) {
 			img = [];
-			const validPosts: any = Object.values(data.media_metadata).filter(
-				(image: any) => image.status === 'valid',
+			const validPosts = Object.values(data.media_metadata).filter(
+				(image) => image.status === 'valid',
 			);
 			for (let i = 0; i < validPosts.length; i++) {
 				img.push(validPosts[i].s.u.replace(/&amp;/g, '&'));

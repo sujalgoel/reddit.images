@@ -13,7 +13,7 @@
 
 ## What is this package?
 
-> A npm package for fetching images and userinfo from reddit.
+> A npm package for fetching images from reddit.
 
 ## Install the package 📥
 
@@ -22,7 +22,7 @@ npm i reddit.images
 ```
 
 ## Example ✏️
-- For examples check this **[link](https://github.com/sujalgoel/reddit.images/blob/master/test/test.js)**.
+- **For examples check this [link](https://github.com/sujalgoel/reddit.images/blob/master/test/test.js).**
 
 ## Contributing 🤝
 

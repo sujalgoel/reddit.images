@@ -1,7 +1,7 @@
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
-export default {
-	PostFormat: (data: any, type: any, image: any, gallery: any) => {
+module.exports = {
+	PostFormat: (data, type, image, gallery) => {
 		return {
 			id: typeof data.id !== 'undefined' ? data.id : null,
 			type: type,
@@ -25,7 +25,7 @@ export default {
 		};
 	},
 
-	getImage: async  (data: any) => {
+	getImage: async (data) => {
 		let tries = 0;
 		const retry = 50;
 		while (tries < retry) {

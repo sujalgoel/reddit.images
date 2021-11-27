@@ -1,4 +1,4 @@
-import reddit from '../src/reddit';
+const reddit = require('../src/reddit');
 
 reddit.FetchRandomMeme({}).then((data) => {
 	console.log('FetchRandomMeme Example:');

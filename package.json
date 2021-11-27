@@ -1,10 +1,10 @@
 {
 	"name": "reddit.images",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "A npm package for fetching images from reddit.",
-	"main": "index.js",
+	"main": "src/reddit.ts",
 	"scripts": {
-		"test": "ts-node test/test.ts"
+		"test": "node test/test.js"
 	},
 	"keywords": [
 		"reddit",
@@ -21,6 +21,6 @@
 		"url": "https://github.com/sujalgoel/reddit.images.git"
 	},
 	"dependencies": {
-		"node-fetch": "^2.6.2"
+		"node-fetch": "^2.6.6"
 	}
 }
