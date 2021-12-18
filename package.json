@@ -2,7 +2,7 @@
 	"name": "reddit.images",
 	"version": "1.0.5",
 	"description": "A npm package for fetching images from reddit.",
-	"main": "src/reddit.ts",
+	"main": "src/reddit.js",
 	"scripts": {
 		"test": "node test/test.js"
 	},
