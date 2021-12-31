@@ -28,7 +28,7 @@ module.exports = {
 	getImage: async (data) => {
 		let tries = 0;
 		const retry = 50;
-		while (tries < retry) {
+		while (tries < retry && data.url) {
 			tries++;
 			const ImageURL = /imgur|gfycat|gif|jpe?g|png|webp/i.test(data.url);
 			if (ImageURL) {
@@ -46,7 +46,7 @@ module.exports = {
 				) {
 					return (
 						'https://i.imgur.com/' +
-						data.url.split('.')[2].split('/')[1] +
+						data.url.split('.')[1].split('/')[1] +
 						'.png'
 					);
 				}
