@@ -1,7 +1,7 @@
-const fetch = require('node-fetch');
 const Functions = require('./function');
 const Meme = require('./json/meme.json');
 const BaseURL = 'https://api.reddit.com';
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 module.exports = {
 	async FetchRandomMeme(options) {
